@@ -5,7 +5,7 @@ import * as z from "zod";
 interface SearchCriteria {
   name?: string;
   age?: {
-    number: number;
+    years: number;
     compare:
       | "equal"
       | "lowerThen"
@@ -32,7 +32,7 @@ function getVaccines(criteria: SearchCriteria) {
       criteria.age &&
       vaccine.ageRangeInYears.some((age) => {
         const result = compares[criteria.age!.compare](
-          criteria.age!.number,
+          criteria.age!.years,
           age,
         );
         return result;
@@ -46,9 +46,12 @@ function getVaccines(criteria: SearchCriteria) {
   return result.map((r) => JSON.stringify(r));
 }
 
+console.log(getVaccines({ age: { compare: "equal", number: 2 } }));
+
 export const getVaccinesTool = tool(getVaccines, {
   name: "getVaccinesTool",
-  description: "Fetch details about vaccines based on the desired query and the time",
+  description:
+    "Fetch details about vaccines based on the desired query and the time",
   schema: z.object({
     name: z.string().optional(),
     age: z
