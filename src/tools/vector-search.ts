@@ -7,7 +7,7 @@ const pc = new Pinecone({
   apiKey: GLOBALS.PINECONE_API_KEY,
 });
 
-async function search(query: { query: string }) {
+async function search({ query }: { query: string }) {
   const namespace = pc
     .index(GLOBALS.PINECONE_INDEX_NAME)
     .namespace("__default__");
@@ -26,6 +26,7 @@ async function search(query: { query: string }) {
   }));
 }
 
+search({ query: "o que são vacinas" });
 export const vec_search = tool(search, {
   name: "vec_search",
   description: "Queries a vector database with possible answers for questions.",
