@@ -46,8 +46,6 @@ function getVaccines(criteria: SearchCriteria) {
   return result.map((r) => JSON.stringify(r));
 }
 
-console.log(getVaccines({ age: { compare: "equal", number: 2 } }));
-
 export const getVaccinesTool = tool(getVaccines, {
   name: "getVaccinesTool",
   description:
