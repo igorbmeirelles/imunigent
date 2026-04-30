@@ -32,8 +32,8 @@ function getVaccines(criteria: SearchCriteria) {
       criteria.age &&
       vaccine.ageRangeInYears.some((age) => {
         const result = compares[criteria.age!.compare](
-          criteria.age!.years,
           age,
+          criteria.age!.years,
         );
         return result;
       })
@@ -45,6 +45,8 @@ function getVaccines(criteria: SearchCriteria) {
 
   return result.map((r) => JSON.stringify(r));
 }
+
+console.log(getVaccines({ age: { compare: "greaterThenOrEqual", years: 0 } }));
 
 export const getVaccinesTool = tool(getVaccines, {
   name: "getVaccinesTool",
