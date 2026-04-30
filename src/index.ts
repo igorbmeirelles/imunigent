@@ -17,10 +17,17 @@ app.use(json());
 // Rota GET /chat
 app.get("/chat", async (req, res) => {
   try {
-    const message = await execute();
+    const message = req.query.message as string;
+
+    if (!message)
+      return res
+        .status(400)
+        .send({ result: { message: 'Query param "message" obrigatório' } });
+
+    const result = await execute(message);
     res.json({
       result: {
-        message,
+        result,
       },
     });
   } catch (error) {

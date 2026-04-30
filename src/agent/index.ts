@@ -6,7 +6,7 @@ import { vec_search } from "../tools/vector-search";
 import { fetchTextFromUrl } from "../tools/internet-search";
 import { SYSTEM_PROMPT } from "../prompts/agent";
 
-export async function execute(): Promise<string> {
+export async function execute(message: string): Promise<string> {
   const model = await initChatModel("gpt-5.4", {
     temperature: 0.5,
     maxTokens: 25000,
@@ -29,7 +29,7 @@ export async function execute(): Promise<string> {
             content: [
               {
                 type: "text",
-                text: "Monte um cronograma de vacinação para criança que perdeu todas as vacinas após 6 meses de idade.",
+                text: message,
               },
             ],
           },
