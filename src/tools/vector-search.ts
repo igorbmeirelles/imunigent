@@ -20,10 +20,12 @@ async function search({ query }: { query: string }) {
     fields: ["chunk_text"],
   });
 
-  return result.result.hits.map((c) => ({
-    score: c._score,
-    text: (c.fields as Record<string, string>).chunk_text,
-  }));
+  return result.result.hits.map((c) =>
+    JSON.stringify({
+      score: c._score,
+      text: (c.fields as Record<string, string>).chunk_text,
+    }),
+  );
 }
 
 search({ query: "o que são vacinas" });
