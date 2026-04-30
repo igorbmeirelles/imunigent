@@ -6,7 +6,7 @@ const app = express();
 // Configurar CORS apenas para https://maisvacinas.netlify.app/
 app.use(
   cors({
-    origin: "https://maisvacinas.netlify.app/",
+    origin: "https://maisvacinas.netlify.app",
     methods: ["GET"],
     credentials: true,
   }),
