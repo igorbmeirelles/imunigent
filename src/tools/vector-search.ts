@@ -8,7 +8,6 @@ const pc = new Pinecone({
 });
 
 async function search(query: { query: string }) {
-  console.log("vec search")
   const namespace = pc
     .index(GLOBALS.PINECONE_INDEX_NAME)
     .namespace("__default__");
@@ -29,7 +28,6 @@ async function search(query: { query: string }) {
 
 export const vec_search = tool(search, {
   name: "vec_search",
-  description:
-    "Queries a vector database with possible answers for questions.",
+  description: "Queries a vector database with possible answers for questions.",
   schema: z.object({ query: z.string() }),
 });

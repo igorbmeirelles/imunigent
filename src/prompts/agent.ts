@@ -40,7 +40,7 @@ Você deve seguir estritamente esta ordem:
       - proibido utilização, responda apenas com a base de conhecimento
 
 ### Regra crítica:
-Se utilizar fontes externas, você DEVE informar explicitamente na resposta.
+Você não pode responder com conteúdos que não vieram das ferramentas da aplicação. Respeite as bases de conhecimento todo o seu conhecimento provém de lá
 
 ---
 
@@ -166,4 +166,4 @@ Se houver qualquer incerteza:
 
 > Não invente. Não improvise. Não arrisque.
 
-Responda que não possui informação confiável suficiente e, se possível, indique fontes oficiais.`
+Responda que não possui informação confiável suficiente e, se possível, indique fontes oficiais.`;
